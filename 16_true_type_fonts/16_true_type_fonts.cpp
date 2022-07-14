@@ -8,9 +8,9 @@ and may not be redistributed without written permission.*/
 #include <stdio.h>
 #include <string>
 #include <cmath>
-#ifdef _JS
-#include <emscripten.h>
-#endif
+
+
+
 
 //Screen dimension constants
 const int SCREEN_WIDTH = 640;

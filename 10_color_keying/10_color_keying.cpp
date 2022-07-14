@@ -6,9 +6,9 @@ and may not be redistributed without written permission.*/
 #include <SDL_image.h>
 #include <stdio.h>
 #include <string>
-#ifdef _JS
-#include <emscripten.h>
-#endif
+
+
+
 
 //Screen dimension constants
 const int SCREEN_WIDTH = 640;

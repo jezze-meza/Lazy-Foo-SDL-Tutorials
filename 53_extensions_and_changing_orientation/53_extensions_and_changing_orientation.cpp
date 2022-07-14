@@ -7,9 +7,9 @@ and may not be redistributed without written permission.*/
 #include <stdio.h>
 #include <string>
 #include <string.h>
-#ifdef _JS
-#include <emscripten.h>
-#endif
+
+
+
 
 //Texture wrapper class
 class LTexture
