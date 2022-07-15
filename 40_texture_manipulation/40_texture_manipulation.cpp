@@ -2,6 +2,7 @@
 //Using SDL, SDL_image, standard IO, and strings
 #include <SDL.h>
 #include <SDL_image.h>
+#include <SDL_ttf.h>
 #include <stdio.h>
 #include <string>
 
@@ -25,10 +26,10 @@ class LTexture
 		//Loads image at specified path
 		bool loadFromFile( std::string path );
 		
-		#ifdef _SDL_TTF_H
+		
 		//Creates image from font string
 		bool loadFromRenderedText( std::string textureText, SDL_Color textColor );
-		#endif
+		
 
 		//Deallocates texture
 		void free();
@@ -83,6 +84,9 @@ SDL_Renderer* gRenderer = NULL;
 
 //Scene textures
 LTexture gFooTexture;
+
+//Globally used font
+TTF_Font *gFont = NULL;
 
 LTexture::LTexture()
 {
@@ -160,7 +164,7 @@ bool LTexture::loadFromFile( std::string path )
 	return mTexture != NULL;
 }
 
-#ifdef _SDL_TTF_H
+
 bool LTexture::loadFromRenderedText( std::string textureText, SDL_Color textColor )
 {
 	//Get rid of preexisting texture
@@ -195,7 +199,7 @@ bool LTexture::loadFromRenderedText( std::string textureText, SDL_Color textColo
 	//Return success
 	return mTexture != NULL;
 }
-#endif
+
 
 void LTexture::free()
 {
@@ -486,16 +490,16 @@ int main( int argc, char* args[] )
 		}
 		else
 		{	
-#ifdef _JS
 
-                        emscripten_set_main_loop_arg(loop_handler, NULL, -1, 1);
-#else
+
+
+
 			//While application is running
 			while( !quit )
 			{
 		 	 loop_handler(NULL);	
 			}
-#endif
+
 		}
 	}
 
