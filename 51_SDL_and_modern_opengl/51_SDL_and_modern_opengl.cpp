@@ -403,16 +403,16 @@ int main( int argc, char* args[] )
 	{
 		//Enable text input
 		SDL_StartTextInput();
-#ifdef _JS
 
-                emscripten_set_main_loop_arg(loop_handler, NULL, -1, 1);
-#else
+
+
+
 			//While application is running
 		while( !quit )
 		{
 		 	 loop_handler(NULL);	
 		}
-#endif
+
 		
 		//Disable text input
 		SDL_StopTextInput();
